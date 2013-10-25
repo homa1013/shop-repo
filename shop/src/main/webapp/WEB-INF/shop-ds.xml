@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+	<datasource jndi-name="java:jboss/datasources/shopDS" pool-name="shop" enabled="true">
+		<connection-url>jdbc:oracle:thin:@localhost:1521:XE</connection-url>
+		<driver-class>oracle.jdbc.OracleDriver</driver-class>
+		<driver>oracle</driver>
+		<transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+		<pool>
+			<min-pool-size>1</min-pool-size>
+			<max-pool-size>4</max-pool-size>
+		</pool>
+		<security>
+			<user-name>shop</user-name>
+			<password>p</password>
+		</security>
+		<validation>
+			<valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+			<check-valid-connection-sql>SELECT 1 FROM DUAL</check-valid-connection-sql>
+			<exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+		</validation>
+	</datasource>
+</datasources>

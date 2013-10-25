@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<ejb-jar xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd"
+         version="3.2">
+	<!--
+	<interceptors>
+		<interceptor>
+			<interceptor-class>de.shop.util.interceptor.LogInterceptor</interceptor-class>
+		</interceptor>
+	</interceptors>
+	-->
+				
+	<assembly-descriptor>
+	    <!--
+		<interceptor-binding>
+			<ejb-name>*</ejb-name>
+			<interceptor-class>de.shop.util.interceptor.LogInterceptor</interceptor-class>
+		</interceptor-binding>
+		-->
+
+		<application-exception>
+			<exception-class>javax.persistence.PersistenceException</exception-class>
+			<rollback>true</rollback> 
+		</application-exception>
+		
+		<application-exception>
+			<exception-class>javax.validation.ConstraintViolationException</exception-class>
+			<rollback>true</rollback> 
+		</application-exception>
+	</assembly-descriptor>
+</ejb-jar>

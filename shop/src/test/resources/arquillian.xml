@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	        xmlns="http://jboss.org/schema/arquillian"
+	        xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+	<!--
+	<defaultProtocol type="Servlet 3.0">
+		<property name="executionType">MANAGED</property>
+	</defaultProtocol>
+	-->
+	
+	<!-- .war-Datei anlegen unter target\arquillian -->
+	<engine>
+		<property name="deploymentExportPath">target/arquillian</property>
+	</engine>
+	
+	<container qualifier="wildfly" default="true">
+		<configuration>
+			<!-- fuer die Konfiguration "managed" -->
+		    <!--
+		    <property name="jbossHome">C:/Software/wildfly</property>
+			<property name="allowConnectingToRunningServer">true</property>
+			<property name="javaVmArguments">-Xms64m -Xmx512m -XX:MaxPermSize=256m</property>
+			-->
+		</configuration>
+	</container>
+	
+	<extension qualifier="webdriver">
+		<property name="browser">firefox</property>   <!-- Default: htmlUnit -->
+	</extension>
+</arquillian>

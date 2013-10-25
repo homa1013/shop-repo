@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+  <display-name>shop</display-name>
+  <context-param>
+    <description>Mapping fuer accept in einem Webbrowser</description>
+    <param-name>resteasy.media.type.mappings</param-name>
+    <param-value>json : application/json, xml : application/xml, image : image/*, text : text/plain</param-value>
+  </context-param>
+  <env-entry>
+    <env-entry-name>absenderMail</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>abcd0011@hs-karlsruhe.de</env-entry-value>
+  </env-entry>
+  <env-entry>
+    <env-entry-name>absenderName</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>Joe Doe</env-entry-value>
+  </env-entry>
+  <env-entry>
+    <env-entry-name>empfaengerMail</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>abcd0011@hs-karlsruhe.de</env-entry-value>
+  </env-entry>
+  <env-entry>
+    <env-entry-name>empfaengerName</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>Joe Doe</env-entry-value>
+  </env-entry>
+  <env-entry>
+    <env-entry-name>locales</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>de,en</env-entry-value>
+  </env-entry>
+ <login-config> 
+  <auth-method>BASIC</auth-method>
+  <realm-name>Webshop</realm-name>
+ </login-config>
+ <security-constraint>
+  <web-resource-collection>
+   <web-resource-name>Kunden erzeugen und modifizieren</web-resource-name>
+   <url-pattern>/rest/kunden</url-pattern>
+   <http-method>POST</http-method>
+   <http-method>PUT</http-method>
+  </web-resource-collection>
+  <auth-constraint>
+   <role-name>admin</role-name>
+   <role-name>mitarbeiter</role-name>
+  </auth-constraint>
+ </security-constraint>
+ <security-constraint>
+  <web-resource-collection>
+   <web-resource-name>Kunden loeschen</web-resource-name>
+   <url-pattern>/rest/kunden/*</url-pattern>
+   <http-method>DELETE</http-method>
+  </web-resource-collection>
+  <auth-constraint>
+   <role-name>admin</role-name>
+  </auth-constraint>
+ </security-constraint>
+ <security-constraint>
+  <web-resource-collection>
+   <web-resource-name>Bestellungen erzeugen</web-resource-name>
+   <url-pattern>/rest/bestellungen</url-pattern>
+   <http-method>POST</http-method>
+  </web-resource-collection>
+  <auth-constraint>
+   <role-name>admin</role-name>
+   <role-name>mitarbeiter</role-name>
+   <role-name>kunde</role-name>
+  </auth-constraint>
+ </security-constraint>
+ <security-role>
+  <role-name>admin</role-name>
+ </security-role>
+ <security-role>
+ <role-name>mitarbeiter</role-name>
+  </security-role>
+ <security-role>
+  <role-name>kunde</role-name>
+ </security-role>
+</web-app>

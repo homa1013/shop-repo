@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!--
+	S E C U R I T Y   F U E R   K A P.   2
+-->
+
+<!-- https://github.com/jboss/metadata/blob/master/web/src/main/resources/schema/jboss-web_8_0.xsd -->
+<!-- https://github.com/jboss/metadata/blob/master/web/src/main/resources/schema/jboss-web_7_1.xsd -->
+<!-- https://github.com/jboss/metadata/blob/master/common/src/main/resources/schema/jboss-common_6_0.xsd -->
+
+<jboss-web xmlns="http://www.jboss.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		   xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-web_8_0.xsd"
+		   version="8.0">
+	<security-domain>shop</security-domain>
+	<!--
+	<disable-audit>false</disable-audit>
+	-->
+</jboss-web>
